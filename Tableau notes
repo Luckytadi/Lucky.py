@@ -1,0 +1,94 @@
+Data types in Tableau
++ Text:abc
++ Numeric:Pound sign(#)
++ Boolean:T/F
++ Date:Calendar icon
++ data-time:Calender and clock icon
++ Geographic valuess(Geo codes)(Latitude and longitude):small globes
+    
+## Icons of calculated fields have an '=' symbol as well
+    
+#Aggergation:
+    + Tableau aggregates data because it is useful to look at aggregated data.
+    + Tableau used aggregates when we place a measure on the rows or columns shelf
+    + We can change the default aggregation for a measure or we can change the aggregation in a visualization.
+    
+### Aggregations support by Tableau:
+    + Sum
+    + Average
+    + Median
+    + Count,Count Distinct
+    + Minimum,Maximum
+    + Percentile
+    + Standard Deviation,Standard Deviation of a poopulation
+    + Variance,Variance of a population
+    
+    
+## Marks card:
++ Tableau displays data using marks.
++ The linear fields on the Rows or columns shelves determine the default mark.
++ We can set the mark type to encode data using colour,shape,size,text and detail,tool tip.
+    
+##Fliters Card:
+    + Allows us to specify which value of a field to include or exclude.
+    + We can fliter using a measure or a dimension ,or both.
+    + If we use a field which is there on the rows or columns shelf,it is called an internal fliter.
+    + If we use a field which is not on the rows or columns shelf,it is called an external fliter.
+    
+##Pages card:
+    + Any field placed on the pages card generates a scrolling fliter which will advance through the values of the field either automatically or manually.
+    + We can place a measure or a dimension on the pages card.However, a measure will be converted to a dimension.
+    +If we place more than 1 field, Tableau will step through every combination of values of those fields.
+Unit - 3
+1)What is aggregation?
+A)- Aggregation defines how values are expressed.
+- Most Tableau functions are calculated at the database server, with only the results being sent to Tableau.
+- Tableau uses the SUM aggregation by default. We can change to any other supported aggregation. The supported aggregations are SUM, AVERAGE, MEDIAN, COUNT, COUNT DISTINCT, MINIMUM, MIXIMUM, STANDARD DEVIATION, STANDARAD DEVIATION OF A POPULATION, VARIANCE, VARIANCE OF A POPULATION.
+- For text, MS Excel, MS Access which donot support certain aggregations like COUNT DISTINCT and MEDIAN, we can add support for these functions by creating a data extract. Tableau data extracts are managed using the Tableau data engine which supports these aggregations.
+- Aggregation behaviour can be changed by modifying the default method by which Tableau expresses dimensions. If a dimension is expressed as an attribute, it will only become a label, and Tableau will not partition the data by that attribute.
+2)What are calculated values?
+A)- Calculated values are one of the ways in which we can add new data to our Tableau workbook
+- Calculated values are defined by entering a formula into Tableau's formula editing dialogue box.
+- Calculated values are normally processed at the data source. This means that the database server does the calculations and returns only the values needed to build the visualization to Tableau.
+- If calculated values include table calculation functions, then they processed locally like Quick Table Calculations.
+3)How Do Calculated values work?
+A)Calculated values can be used to generate numbers, dates, date-times or strings.
+All calculated values require the following elements.
+>>> Functions including aggregate, number, string, date, type conversion, logical, and table calculation types.
+>>> Feilds selected from the data source.
+>>> Operators for arithematic and comparision of values dates and texts.
+calculated values may also contain some optional elements such as
+>>> parameters - for creating formula variables that are accessible to end-users.
+>>> comments - for documenting the formula syntax and for notes within the formula dialogue box.
+4)What are table calcualtions?
+A)- A table calculation is transformation which we can apply to the values to the visualization.
+- Table calculations are special type of calculated fields which make calculations on the local data in a table.
+- they are calculated based on what is currently dispalyed in the visualization, and do not consider any measures or dimensions that currently filterout of the visualizations.
+- Table calculations can be used for a variety of purposes including 
+    > Transform values to show running values.
+    > Transform values to show percent of total.
+    > Transform values to ranking.
+- To create table calculations we need to select
+    > Calculation type: from running total, Difference, Percent of total, etc...,
+    > Aggregation method: from SUM, AVERAGE, etc...,
+    > Running Along: This defines the direction that the calculation travels. For example, Table across, Table down, etc...,
+    > There is also a 'Restarting Every' option which is relevant when a dimension divides the visualization.
+Creating a standard Map View:
+  > Tableau provides two types of maps:
+     -> Filled maps are 
+        There will be shades of two colours if the measures has both positive and negative values.
+     -> Symbol maps display specific locations on a map which are associated with some field
+  > There are two ways to create maps:
+     -> Double click a field with global icon. Then double click a measure. Tableau places the generated fields latitude and the longitude on the rows and column shelfs and the measure on the size card on the marks shelf.
+     -> Multi-select a field with a globe icon and a measure. Click the symbol map icon or the filled map icon on the show me card.
+  > We can modify the stardard map view in several ways using the Map menu some options require a connection to the internet .
+     -> We can choose from different background sytles like normal, light, dark,satelite, streets, etc.
+Ploting your own locations on a Map:
+ Tableau provides Maps for most places in the world. But while the maps for USA are very detailed, the maps for other places are less detailed. Suppose we want to plot some locations which are not recognised by tableau there are two options, 
+   Add the specfic latitude and longitude to source data(Import custom) (geo code list into tableau).
+Adding custom geo-coding to the data source:
+   -> We need to add columns for latitude and longitude to each record to the concerned table in a data source.
+   -> For tableau to prodive the background map, we need a fields which tableau recognises as a geographic unit, such as state or city or country in the data source. Tableau then recognises field names such as lat and long as the latidude and longitude respectively.
+   -> We then need to place our custom latitude and longitude fields on the rows and columns shelfs to plot them on a map.
+   -> Tableau gives us a scatter plot with the AVERAGE values of the latitudes and longitudes.
+   -> Uncheck aggregate measures on the analysis menu to get a map with all the points shown separately.   
